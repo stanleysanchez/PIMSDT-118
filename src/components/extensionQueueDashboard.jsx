@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {Col, Row} from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 import '../css/extensionQueue.css'
 
 const ExtensionQueue = (props) => {
@@ -10,6 +10,8 @@ const ExtensionQueue = (props) => {
     const getStatistics = async () => {
         //let statisticsUrl = "https://nitroconnector.azurewebsites.net/ExtensionQueue/GetExtensionQueue/4d57e8b329cd33f8ed28c3d2e622c400&4f35c0fab0695eedb8bdc15ff5b1a035&EpiConnector;CVLListener";
         let statisticsUrl = "https://avensia-im-pim-nitroconnector-dev.azurewebsites.net/ExtensionQueue/GetStatQueues/" + props.customerName + "/" + props.customerEnvironment;
+        //for locally run backend
+        //let statisticsUrl = "https://localhost:44378/ExtensionQueue/GetStatQueues/" + props.customerName + "/" + props.customerEnvironment;
         let request = {
             method: "get",
             url: statisticsUrl
@@ -32,27 +34,33 @@ const ExtensionQueue = (props) => {
 
     return( 
             <React.Fragment>
-                <div class="column">
+                <div class="customColumn">
                 <table>
                     <thead>
-                        <tr><span class="">{props.customerName}</span></tr>
                         <tr>
-                        <th>Extension</th>
-                        <th>Queue<span>(Extension Stats)</span></th>
-                        <th>Error<span>(Extension Stats)</span></th>        
-                        <th>Running<span>(Extension Stats)</span></th>
+                            <th class = "customerNames">  {props.customerName}</th>    
+                            <th class = "customerNames"></th> 
+                            <th class = "customerNames"></th> 
+                            <th class = "customerNames"></th>                         
+                        </tr>
+                        <tr>
+                            <th>Extension </th>
+                            <th>Queue(Extension Stats) </th>
+                            <th>Error(Extension Stats) </th>        
+                            <th>Running(Extension Stats) </th>
                         </tr>
                     </thead>
                     <tbody>
-                {loading && stats.map(s => 
-                <tr>
-                <td>{s.extension}</td>
-                <td>{s.queuedEventCount}</td>
-                <td>{s.errorEventCount}</td>
-                <td>{(s.currentSequenceNumber > -1) ? 'true' : 'false'}</td>
-                </tr>)
-                }
-                </tbody>
+                    {loading && stats.map(s =>                           
+                                <tr>
+                                <th>{s.extension}</th>
+                                <td>{s.queuedEventCount}</td>
+                                <td>{s.errorEventCount}</td>
+                                <td>{(s.currentSequenceNumber > -1) ? 'true' : 'false'}</td>
+                            </tr>                                                 
+                            )
+                        }
+                    </tbody>
                 </table>  
                 </div>              
             </React.Fragment>
