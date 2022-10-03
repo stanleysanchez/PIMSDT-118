@@ -1,15 +1,16 @@
 .customColumn {
   float: left;
-  height: 400px;
-  width: 400px;
+  height: 100%;
+  width: 100%;
   padding-top: 20px;
-  border: 1px solid sandybrown;
+  border: 1px solid grey;
   overflow: scroll;
 }
 
 .customerNames{
-  background-color: rgb(63, 63, 181);
+  background-color: rgb(63, 63, 139);
   color:aliceblue;
+  width:100%;
 }
 
 .container-table  {
@@ -21,8 +22,8 @@
   height: 60px;
   text-align: center;
   padding-top: 10px;
-  border: 1px solid sandybrown;
-  background-color: rgb(63, 63, 181);
+  border: 1px solid grey;
+  background-color: rgb(63, 63, 139);
   color:aliceblue;
   font-size: larger;
   font-family: Arial, Helvetica, sans-serif;
@@ -31,16 +32,12 @@
 
 .horizontal-center-row {
   display: table-cell;
-  padding-left: 96px; /*hack to center*/
+  padding-left: 0px; /*hack to center*/
   text-align: middle;
 }
 
-.customTable {
-  border: 1px solid rgb(16, 14, 14);
-}
-
-.tableHeader {
-  text-align: center;
-  font-weight: bold;
-  background-color:aquamarine;
+.testDivs{
+  width: 200px;
+  height:250px;
+  border: 1px solid grey;
 }
