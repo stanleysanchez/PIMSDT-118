@@ -40,25 +40,10 @@ const InRiverRssFeed = () => {
             {loading == true ?
                 <table class="table">
                 <thead>   
-                    <h5>INRIVER RSS FEED</h5>
+                    <h5>** INRIVER RSS FEED **</h5>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><b>Title</b></td>
-                        <td><b>Startdate</b></td>
-                        <td><b>Description</b></td>
-                        <td><b>Severity</b></td>
-                    </tr>  
-                    {rssActiveIncidents.map(s => 
-                    <React.Fragment>
-                        <tr>
-                            <td>{s.incident_title}</td>
-                            <td>{s.incident_began_at}</td>
-                            <td>{s.incident_desc}</td>
-                            <td>{s.incident_severity_id}</td>
-                        </tr>   
-                    </React.Fragment>
-                    ) }
+                    
                     {rssCurrentStatus.map(c => 
                     <React.Fragment>                    
                         <tr>
@@ -90,7 +75,9 @@ const InRiverRssFeed = () => {
                     </React.Fragment>
                     ) }
                 </tbody>                
-                </table> : null
+                </table> : <React.Fragment>
+                
+                           </React.Fragment>
             }
         </React.Fragment>
     );

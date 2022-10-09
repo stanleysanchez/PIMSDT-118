@@ -7,7 +7,7 @@ import { render } from '@testing-library/react';
 const ExtensionQueue = (props) => {
     const [stats, getQueueStatistics] = useState([]);
     const [loading, setLoading] = useState(false);
-
+    
     const getStatistics = async () => {
         //let statisticsUrl = "https://nitroconnector.azurewebsites.net/ExtensionQueue/GetExtensionQueue/4d57e8b329cd33f8ed28c3d2e622c400&4f35c0fab0695eedb8bdc15ff5b1a035&EpiConnector;CVLListener";
         //let statisticsUrl = "https://avensia-im-pim-nitroconnector-dev.azurewebsites.net/ExtensionQueue/GetStatQueues/" + props.customerName + "/" + props.customerEnvironment;
@@ -20,8 +20,10 @@ const ExtensionQueue = (props) => {
     
         await axios(request)
         .then(res => {
-            console.log(res);
             getQueueStatistics(res.data)
+            console.log(props.customerName)
+            console.log(stats);
+            
             setLoading(true);
         })
         .catch(err => {
@@ -36,9 +38,9 @@ const ExtensionQueue = (props) => {
     return( 
             
             <React.Fragment>
-                {loading == true ?
-                <div class="customColumn">
-                   
+                
+                {loading == true && stats.length > 0 ?
+                               
                 <table class="table table-striped">
                     <thead>
                     
@@ -51,28 +53,32 @@ const ExtensionQueue = (props) => {
 
                     </thead>                                      
                     <tbody>
-                                    
-                    {loading && stats.map(s =>  
-                        (s.queuedEventCount != [] || s.errorEventCount != []) ?
-                            <React.Fragment>
-                           <tr>
+                    <tr>
                             <th>Extension </th>
                             <th>Queue(Extension Stats) </th>
                             <th>Error(Extension Stats) </th>        
                             <th>Running(Extension Stats) </th>
-                    </tr>       
+                    </tr>                
+                    {loading && stats.map(s =>  
+                        (s.queuedEventCount != [] || s.errorEventCount != []) ?
+                            <React.Fragment>
+                                 
                             <tr>
-                                <th>{s.extension}</th>
+                            {parseInt(s.errorEventCount) > 10 ?
+                                <th class="errorThresholdReach">{s.extension}</th> : <th>{s.extension}</th>
+                            }
                                 <td>{s.queuedEventCount}</td>
-                                <td>{s.errorEventCount}</td>
+                                {parseInt(s.errorEventCount) > 10 ?
+                                <td class="errorThresholdReach">{s.errorEventCount}<a href={s.extentionUrl}>Go to CC</a></td> : <td>{s.errorEventCount}<a href={s.extentionUrl}>Go to CC</a></td>
+}
                                 <td>{(s.currentSequenceNumber > -1) ? 'true' : 'false'}</td>
                             </tr>           
                             </React.Fragment> : <tr>No Errors Or Pending Queues</tr>                                                                                        
                             ) 
                         }
                     </tbody>
-                </table> 
-                </div> : null
+                </table> : null
+                
                 }              
             </React.Fragment>
         );   

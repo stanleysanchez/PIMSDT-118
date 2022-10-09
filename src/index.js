@@ -7,7 +7,6 @@ import InRiverRssFeed from './components/inRiverRssFeed';
 //<img src={logo} width="100" height="50"></img>
 //ReactDOM.render(element, document.getElementById('root'));    {autoRefresh()};   
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const autoRefresh = () => {setTimeout(() => {window.location.reload(1)}, 200000)};
 
 let customerEnvironment = "Test";
 //const customers = ["Megaflis","Indeks Retail A/S","Clas Ohlson AB","Finja AB","Babyworld AB"];
@@ -17,18 +16,20 @@ const errorPerCustomer = [];
 //const customerErrorsTotal = (stats) => {} 
 root.render(
     <React.StrictMode>          
-        <div class="container-fluid">
-            <div class="headerDiv">           
-                <span>INNOVATE WEB DASHBOARD MONITORING TOOL</span>                          
-            </div>
-            <div class="container">
-                <InRiverRssFeed />
-            </div>
-            <div class="container">           
+        <div class="row">
+        <div class="col-md-3">
+            
+            <InRiverRssFeed />
+            
+                 </div>       
+                 <div class="col-md-9">   
+            
+            <h5>** EXTENSION QUEUES **</h5>        
                 {customers.map((c) => 
                     <ExtensionQueue customerName={c} customerEnvironment={customerEnvironment}/>
                 )}                
             </div>           
+            
         </div>
     </React.StrictMode>
 );
