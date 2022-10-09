@@ -1,0 +1,9 @@
+.currStatusTable{
+    border: 1px solid;
+}
+
+.currStatusTable th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
