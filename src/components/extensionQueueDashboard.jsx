@@ -159,7 +159,7 @@ const ExtensionQueue = (props) => {
 
   return (
     <React.Fragment>
-      <Carousel interval={5000} variant="dark">
+      <Carousel class="styled-carousel" interval={5000} variant="dark">
         <Carousel.Item>
           {loading1 == true && stats1.length > 0 ? (
             <CustomerExtensionQueues stats={stats1} customerName="Ahlens AB" />

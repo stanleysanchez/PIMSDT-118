@@ -5,7 +5,7 @@ import "../css/extensionQueue.css";
 const CustomerExtensionQueues = (props) => {
   return (
     <React.Fragment>
-      <table class="table table-striped">
+      <table class="styled-table">
         <thead>
           <tr class="customerNames">
             <th>{props.customerName}</th>
