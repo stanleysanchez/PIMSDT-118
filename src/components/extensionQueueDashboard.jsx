@@ -49,11 +49,10 @@ const ExtensionQueue = (props) => {
     "Moelven Industrier",
   ];
   const getStatistics = async (custName) => {
-    //let statisticsUrl = "https://nitroconnector.azurewebsites.net/ExtensionQueue/GetExtensionQueue/4d57e8b329cd33f8ed28c3d2e622c400&4f35c0fab0695eedb8bdc15ff5b1a035&EpiConnector;CVLListener";
-    //let statisticsUrl = "https://avensia-im-pim-nitroconnector-dev.azurewebsites.net/ExtensionQueue/GetStatQueues/" + props.customerName + "/" + props.customerEnvironment;
     //for locally run backend
+    //"https://localhost:44378/ExtensionQueue/GetStatQueues/"
     let statisticsUrl =
-      "https://localhost:44378/ExtensionQueue/GetStatQueues/" +
+      "https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" +
       custName +
       "/" +
       props.customerEnvironment;

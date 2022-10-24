@@ -10,7 +10,7 @@ const InRiverRssFeed = () => {
     //let statisticsUrl = "https://nitroconnector.azurewebsites.net/ExtensionQueue/GetExtensionQueue/4d57e8b329cd33f8ed28c3d2e622c400&4f35c0fab0695eedb8bdc15ff5b1a035&EpiConnector;CVLListener";
     //for locally run backend
     let inRiverRssUrl =
-      "https://localhost:44378/ExtensionQueue/GetInRiverStatusRR";
+      "https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetInRiverStatusRR";
     let request = {
       method: "get",
       url: inRiverRssUrl,
