@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "bootstrap/dist/css/bootstrap.css";
 import "./css/index.css";
-import ExtensionQueue from "./components/extensionQueueDashboard";
+import ExtensionQueuePlain from "./components/extensionQueueDashboardPlain";
 import InRiverRssFeed from "./components/inRiverRssFeed";
 import InriverLogo from "./images/Inriver_logo.png";
 import AvensiaLogo from "./images/avensia_logo.png";
@@ -37,7 +37,7 @@ root.render(
       <div class="col-md-9">
         <img src={InriverLogo} class="inRiverLogoImg" alt=" " />
         <span class="componentLabel">EXTENSION QUEUES</span>        
-        <ExtensionQueue customerEnvironment={customerEnvironment} />               
+        <ExtensionQueuePlain customerEnvironment={customerEnvironment} />               
       </div>
     </div>
   </React.StrictMode>
