@@ -85,7 +85,7 @@ const ExtensionQueuePlain = (props) => {
     //"https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" - .net core 3.1
     //"https://im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" - .net 6
     let statisticsUrl =
-      "https://localhost:44378/ExtensionQueue/GetStatQueues/" +
+    "https://im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" +
       custName +
       "/" +
       props.customerEnvironment;

@@ -9,7 +9,7 @@ import InriverLogo from "./images/Inriver_logo.png";
 import AvensiaLogo from "./images/avensia_logo.png";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-let customerEnvironment = "Test";
+let customerEnvironment = "Prod";
 
 const backgroundStyle = {
   backgroundImage:
