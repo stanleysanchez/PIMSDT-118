@@ -9,7 +9,7 @@ import InriverLogo from "./images/Inriver_logo.png";
 import AvensiaLogo from "./images/avensia_logo.png";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-let customerEnvironment = "Prod";
+let customerEnvironment = "Test";
 
 const backgroundStyle = {
   backgroundImage:
@@ -28,13 +28,17 @@ let custList = [
   "Clas Ohlson AB",
   "Finja AB",
   "Fisher and Paykel",
-  "Hills Ltd",
+  "GWA International",
   "HTS Group",
   "HTS Hans Torgersen",
   "Indeks Retail AS",
+  "Kid ASA",
   "Megaflis",
   "Menigo Foods",
   "Moelven Industrier",
+  "Purefun",
+  "Stenstroms Skjortfabrik AB",
+  "Weatherbeeta"
 ];
 
 root.render(
