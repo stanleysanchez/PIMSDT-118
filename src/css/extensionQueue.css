@@ -40,3 +40,8 @@
 .errorThresholdReach{
   color:red !important;
 }
+
+.errorThreshold{
+   font-weight: bold;
+   color: #190551;
+}

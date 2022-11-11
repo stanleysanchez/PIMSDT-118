@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../css/extensionQueue.css";
 
 const CustomerExtensionQueues = (props) => {
+  const errorthreshold = 20;
   return (
     <React.Fragment>
       <table class="styled-table">
@@ -24,19 +25,18 @@ const CustomerExtensionQueues = (props) => {
           {props.stats.map((s) => (
             <React.Fragment>
               <tr>
-                {parseInt(s.errorEventCount) > 10 ? (
+                {parseInt(s.errorEventCount) > errorthreshold ? (
                   <th class="errorThresholdReach">{s.extension}</th>
                 ) : (
                   <th>{s.extension}</th>
                 )}
                 <td>{s.queuedEventCount}</td>
-                {parseInt(s.errorEventCount) > 10 ? (
+                {parseInt(s.errorEventCount) > errorthreshold ? (
                   <td class="errorThresholdReach">
                     {s.errorEventCount}
                     <span> </span>
                     <a href={s.extentionUrl} target="_blank">
-                      Go to CC
-                    </a>
+                      Go to CC                    </a>
                   </td>
                 ) : (
                   <td>

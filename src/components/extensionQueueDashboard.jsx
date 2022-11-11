@@ -51,8 +51,11 @@ const ExtensionQueue = (props) => {
   const getStatistics = async (custName) => {
     //for locally run backend
     //"https://localhost:44378/ExtensionQueue/GetStatQueues/"
+    //for azure service backend
+    //"https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" - .net core 3.1
+    //"https://im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" - .net 6
     let statisticsUrl =
-      "https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" +
+    "https://localhost:44378/ExtensionQueue/GetStatQueues/" +
       custName +
       "/" +
       props.customerEnvironment;

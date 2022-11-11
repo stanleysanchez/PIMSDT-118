@@ -9,8 +9,11 @@ const InRiverRssFeed = () => {
   const getRssFeed = async () => {
     //let statisticsUrl = "https://nitroconnector.azurewebsites.net/ExtensionQueue/GetExtensionQueue/4d57e8b329cd33f8ed28c3d2e622c400&4f35c0fab0695eedb8bdc15ff5b1a035&EpiConnector;CVLListener";
     //for locally run backend
+    //for azure service backend
+    //"https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetInRiverStatusRR"; - .net core 3.1
+    //"https://im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetInRiverStatusRR"; - .net 6
     let inRiverRssUrl =
-      "https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetInRiverStatusRR";
+      "https://im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetInRiverStatusRR";
     let request = {
       method: "get",
       url: inRiverRssUrl,

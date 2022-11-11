@@ -46,7 +46,7 @@ const ExtensionQueuePlain = (props) => {
   const [isOverThreshold13, checkThreshold13] = useState([false]);
   const [showErrorOnly, setShowErrorOnly] = useState(false);
 
-  const errorthreshold = 10;
+  const errorthreshold = 20;
   const alhens = "Ahlens AB";
   const babyworld = "Babyworld AB";
   const birkenstockgmbh = "Birkenstock GmbH";
@@ -61,29 +61,14 @@ const ExtensionQueuePlain = (props) => {
   const menigofoods = "Menigo Foods";
   const moelvenindustries = "Moelven Industrier";
 
-  let custList = [
-    "Ahlens AB",
-    "Babyworld AB",
-    "Birkenstock GmbH",
-    "Clas Ohlson AB",
-    "Finja AB",
-    "Fisher and Paykel",
-    "Hills Ltd",
-    "HTS Group",
-    "HTS Hans Torgersen",
-    "Indeks Retail AS",
-    "Megaflis",
-    "Menigo Foods",
-    "Moelven Industrier",
-  ];
-  
   const getStatistics = async (custName) => {
     //for locally run backend
     //"https://localhost:44378/ExtensionQueue/GetStatQueues/"
     //for azure service backend
-    //"https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/"
+    //"https://avensia-im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" - .net core 3.1
+    //"https://im-pim-support-api-monitoring-tool.azurewebsites.net/ExtensionQueue/GetStatQueues/" - .net 6
     let statisticsUrl =
-      "https://localhost:44378/ExtensionQueue/GetStatQueues/" +
+    "https://localhost:44378/ExtensionQueue/GetStatQueues/" +
       custName +
       "/" +
       props.customerEnvironment;
@@ -194,20 +179,20 @@ const ExtensionQueuePlain = (props) => {
   const initiateCall = () => {
     setTimeout(initiateCall, 60000);
     console.log("triggering initiatecall");
-    custList.map((c) => getStatistics(c));
+    props.custList.map((c) => getStatistics(c));
   };
 
   const toggleExtensionView = () => {
     setShowErrorOnly(!showErrorOnly);
     console.log("toggle view");
-    custList.map((c) => getStatistics(c));
+    props.custList.map((c) => getStatistics(c));
   };
 
   const checkErrorThreshold = (custName, stats) => {
     let hasOverErrorThreshold = false;
 
     for (var i = 0; i < stats.length; i++) {
-      if (c.errorEventCount > 10) {
+      if (stats[i].errorEventCount > errorthreshold) {
         hasOverErrorThreshold = true;
         break;
       }
@@ -262,7 +247,7 @@ const ExtensionQueuePlain = (props) => {
   return (
     <React.Fragment>
       <br></br>
-      <span class="label label-primary">
+      <span class="errorThreshold">
         <input
           type="checkbox"
           defaultChecked={showErrorOnly}
