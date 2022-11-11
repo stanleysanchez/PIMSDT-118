@@ -1,0 +1,15 @@
+.tableMain {
+  margin-top: 20px;
+  border-style: solid;
+  border-width: thin;
+  background-color:antiquewhite;
+}
+
+.tableMain tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.tableMain tbody tr:nth-of-type(odd) {
+  background-color: #077f1f;
+  color: #dddddd;
+}
